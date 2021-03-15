@@ -25,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer read(int id) {
-        return repository.getOne(id);
+        return repository.findById(id).orElse(null);
     }
 
     @Override

@@ -29,13 +29,13 @@ public class CustomersAPIController {
         return service.read(id);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public Customer updateCustomer(@PathVariable(name = "id") int id, @RequestBody Customer customer) {
         service.update(customer, id);
         return customer;
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public boolean deleteCustomer(@PathVariable(name = "id") int id) {
         return service.delete(id);
     }

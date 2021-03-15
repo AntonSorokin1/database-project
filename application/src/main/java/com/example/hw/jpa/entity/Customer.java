@@ -7,23 +7,12 @@ import javax.persistence.*;
 public class Customer {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "customersIdSeq", sequenceName = "customers_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customersIdSeq")
     private Integer id;
 
     @Column(name = "name")
     private String name;
-
-    public Customer() {
-    }
-
-    public Customer(String name) {
-        this.name = name;
-    }
-
-    public Customer(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
     public Integer getId() {
         return id;
