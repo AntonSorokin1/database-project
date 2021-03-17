@@ -1,39 +1,39 @@
 package com.example.hw.jpa.services.impl;
 
-import com.example.hw.jpa.Customer;
-import com.example.hw.jpa.repositories.CustomerRepository;
-import com.example.hw.jpa.services.CustomerService;
+import com.example.hw.jpa.Product;
+import com.example.hw.jpa.repositories.ProductRepository;
+import com.example.hw.jpa.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CustomerServiceImpl implements CustomerService {
+public class ProductServiceImpl implements ProductService {
     @Autowired
-    private CustomerRepository repository;
+    private ProductRepository repository;
 
     @Override
-    public Customer create(Customer customer) {
-        repository.save(customer);
-        return customer;
+    public Product create(Product object) {
+        repository.save(object);
+        return object;
     }
 
     @Override
-    public List<Customer> readAll() {
+    public List<Product> readAll() {
         return repository.findAll();
     }
 
     @Override
-    public Customer read(int id) {
+    public Product read(int id) {
         return repository.findById(id).orElse(null);
     }
 
     @Override
-    public boolean update(Customer customer, int id) {
+    public boolean update(Product object, int id) {
         if (repository.existsById(id)) {
-            customer.setId(id);
-            repository.save(customer);
+            object.setId(id);
+            repository.save(object);
             return true;
         }
         return false;
