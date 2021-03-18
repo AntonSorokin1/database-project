@@ -47,4 +47,9 @@ public class OrderServiceImpl implements OrderService {
         }
         return false;
     }
+
+    @Override
+    public List<Order> findAllByCustomerId(int customerId) {
+        return repository.findAllByCustomerId(customerId);
+    }
 }
